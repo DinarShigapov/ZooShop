@@ -1,0 +1,64 @@
+﻿<Page x:Class="Manager.Pages.LoginPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Manager.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="600" d:DesignWidth="1000"
+      Title="LoginPage">
+
+    <Page.Resources>
+        <Style TargetType="TextBox">
+            <Setter Property="BorderThickness" Value="0 0 0 1.5"/>
+            <Setter Property="Height" Value="30"/>
+            <Setter Property="VerticalContentAlignment" Value="Bottom"/>
+            <Setter Property="FontSize" Value="20"/>
+        </Style>
+        <Style TargetType="PasswordBox">
+            <Setter Property="BorderThickness" Value="0 0 0 1.5"/>
+            <Setter Property="Height" Value="30"/>
+            <Setter Property="VerticalContentAlignment" Value="Bottom"/>
+            <Setter Property="FontSize" Value="20"/>
+        </Style>
+        <Style TargetType="TextBlock">
+            <Setter Property="TextBlock.FontFamily" Value="/Fonts/#Jost"/>
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="Margin" Value="0 30 0 0"/>
+            <Setter Property="Foreground">
+                <Setter.Value>
+                    <SolidColorBrush Color="Black" Opacity="0.5"/>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Page.Resources>
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200*"/>
+            <ColumnDefinition Width="200*"/>
+        </Grid.ColumnDefinitions>
+
+        <Image Source="/Resources/logoMain.png"
+               Width="300"
+               RenderOptions.BitmapScalingMode="Fant"/>
+
+        <StackPanel Grid.Column="1"
+                    VerticalAlignment="Center"
+                    Width="250">
+            <TextBlock Text="Менеджер"
+                       HorizontalAlignment="Center"
+                       FontSize="30"/>
+            <TextBlock Text="Логин"/>
+            <TextBox x:Name="TBLogin"/>
+            <TextBlock Text="Пароль"/>
+            <PasswordBox x:Name="PBPassword"/>
+            <Button Style="{StaticResource RoundBtnStyle}"
+                    Margin="0 10"
+                    Background="#FFD6872C"
+                    Content="Войти"
+                    x:Name="BLogin"
+                    Click="BLogin_Click"/>
+        </StackPanel>
+    </Grid>
+</Page>
