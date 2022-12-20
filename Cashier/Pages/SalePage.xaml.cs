@@ -77,9 +77,7 @@ namespace Cashier.Pages
                 MessageBox.Show("В корзине нет товаров");
                 return;
             }
-
             var bonusCard = App.DB.BonusCard.FirstOrDefault(x => x.NumberCard == TBCard.Text);
-
 
             Payment payment = new Payment
             {
@@ -90,24 +88,28 @@ namespace Cashier.Pages
             App.DB.Payment.Add(payment);
             App.DB.SaveChanges();
 
+            var query = products.GroupBy(x => x)
+              .Where(g => g.Count() >= 1)
+              .ToDictionary(x => x.Key, y => y.Count());
 
-            foreach (var item in products)
+            foreach (var item in query)
             {
                 Sale sale = new Sale
                 {
-                    ProductId = item.Id,
-                    PaymentId = payment.Id
+                    ProductId = item.Key.Id,
+                    PaymentId = payment.Id,
+                    Quantity = (short)item.Value
+                    
                 };
-                var buf = App.DB.Stock.FirstOrDefault(x => x.ProductId == item.Id);
-                buf.Quantity -= 1;
-
+                var buf = App.DB.Stock.FirstOrDefault(x => x.ProductId == item.Key.Id);
+                buf.Quantity -= (short)item.Value;
                 App.DB.Sale.Add(sale);
             }
             App.DB.SaveChanges();
 
             if (MessageBox.Show("Доставка?", "", MessageBoxButton.OKCancel, MessageBoxImage.Question) == MessageBoxResult.OK)
             {
-
+                
             }    
             NavigationService.Navigate(new SalePage());
         }

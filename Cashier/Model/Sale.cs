@@ -17,6 +17,7 @@ namespace Cashier.Model
         public int Id { get; set; }
         public int ProductId { get; set; }
         public int PaymentId { get; set; }
+        public short Quantity { get; set; }
     
         public virtual Payment Payment { get; set; }
         public virtual Product Product { get; set; }
