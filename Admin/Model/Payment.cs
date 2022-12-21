@@ -23,7 +23,7 @@ namespace Admin.Model
     
         public int Id { get; set; }
         public int EmployeeId { get; set; }
-        public int BonusCardId { get; set; }
+        public Nullable<int> BonusCardId { get; set; }
         public System.DateTime DateTimeSale { get; set; }
     
         public virtual BonusCard BonusCard { get; set; }

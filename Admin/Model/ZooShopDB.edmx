@@ -17,7 +17,7 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="NumberCard" Type="varchar" MaxLength="16" Nullable="false" />
+          <Property Name="NumberCard" Type="varchar" MaxLength="6" Nullable="false" />
           <Property Name="LastName" Type="nvarchar" MaxLength="20" Nullable="false" />
           <Property Name="FirstName" Type="nvarchar" MaxLength="20" Nullable="false" />
           <Property Name="Patronymic" Type="nvarchar" MaxLength="20" Nullable="false" />
@@ -36,7 +36,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="DTDelivery" Type="datetime" Nullable="false" />
           <Property Name="StatusId" Type="int" Nullable="false" />
           <Property Name="PaymentId" Type="int" Nullable="false" />
@@ -68,7 +68,7 @@
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="EmployeeId" Type="int" Nullable="false" />
-          <Property Name="BonusCardId" Type="int" Nullable="false" />
+          <Property Name="BonusCardId" Type="int" />
           <Property Name="DateTimeSale" Type="datetime" Nullable="false" />
         </EntityType>
         <EntityType Name="Post">
@@ -105,7 +105,7 @@
           <Property Name="FirstName" Type="nvarchar" MaxLength="20" Nullable="false" />
           <Property Name="Patronymic" Type="nvarchar" MaxLength="20" Nullable="false" />
           <Property Name="Phone" Type="nvarchar" MaxLength="11" Nullable="false" />
-          <Property Name="Email" Type="nvarchar" MaxLength="50" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Address" Type="nvarchar" MaxLength="100" Nullable="false" />
         </EntityType>
         <EntityType Name="Sale">
@@ -194,7 +194,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Payment_BonusCard">
-          <End Role="BonusCard" Type="Self.BonusCard" Multiplicity="1" />
+          <End Role="BonusCard" Type="Self.BonusCard" Multiplicity="0..1" />
           <End Role="Payment" Type="Self.Payment" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="BonusCard">
@@ -442,7 +442,7 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="NumberCard" Type="String" Nullable="false" MaxLength="16" FixedLength="false" Unicode="false" />
+          <Property Name="NumberCard" Type="String" Nullable="false" MaxLength="6" FixedLength="false" Unicode="false" />
           <Property Name="LastName" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
           <Property Name="FirstName" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
           <Property Name="Patronymic" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
@@ -464,7 +464,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="DTDelivery" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="StatusId" Type="Int32" Nullable="false" />
           <Property Name="PaymentId" Type="Int32" Nullable="false" />
@@ -501,7 +501,7 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="EmployeeId" Type="Int32" Nullable="false" />
-          <Property Name="BonusCardId" Type="Int32" Nullable="false" />
+          <Property Name="BonusCardId" Type="Int32" />
           <Property Name="DateTimeSale" Type="DateTime" Nullable="false" Precision="3" />
           <NavigationProperty Name="BonusCard" Relationship="ZooShopDBModel.FK_Payment_BonusCard" FromRole="Payment" ToRole="BonusCard" />
           <NavigationProperty Name="Delivery" Relationship="ZooShopDBModel.FK_Delivery_Payment" FromRole="Payment" ToRole="Delivery" />
@@ -549,7 +549,7 @@
           <Property Name="FirstName" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
           <Property Name="Patronymic" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
           <Property Name="Phone" Type="String" Nullable="false" MaxLength="11" FixedLength="false" Unicode="true" />
-          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Address" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Supply" Relationship="ZooShopDBModel.FK_Supply_Provider" FromRole="Provider" ToRole="Supply" />
         </EntityType>
@@ -596,7 +596,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Payment_BonusCard">
-          <End Type="ZooShopDBModel.BonusCard" Role="BonusCard" Multiplicity="1" />
+          <End Type="ZooShopDBModel.BonusCard" Role="BonusCard" Multiplicity="0..1" />
           <End Type="ZooShopDBModel.Payment" Role="Payment" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="BonusCard">
@@ -739,7 +739,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-      </Schema>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
