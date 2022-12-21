@@ -109,9 +109,16 @@ namespace Cashier.Pages
 
             if (MessageBox.Show("Доставка?", "", MessageBoxButton.OKCancel, MessageBoxImage.Question) == MessageBoxResult.OK)
             {
-                
-            }    
-            NavigationService.Navigate(new SalePage());
+                NavigationService.Navigate(new DeliveryPage(new Delivery()
+                {
+                    Payment = payment,
+                    StatusId = 1
+                }));
+            }
+            else 
+            {
+                NavigationService.Navigate(new SalePage());
+            }
         }
 
         private void TBSearch_TextChanged(object sender, TextChangedEventArgs e)

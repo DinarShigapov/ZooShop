@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Cashier.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +21,37 @@ namespace Cashier.Pages
     /// </summary>
     public partial class DeliveryPage : Page
     {
-        public DeliveryPage()
+        Delivery contextDelivery;
+        public DeliveryPage(Delivery delivery)
         {
             InitializeComponent();
+            contextDelivery = delivery;
+            DataContext = contextDelivery;
+        }
+
+        private void BArrange_Click(object sender, RoutedEventArgs e)
+        {
+            var selectedDate = DPDate.SelectedDate;
+            var selectedTime = TBTime.Text;
+            if (string.IsNullOrWhiteSpace(contextDelivery.Address))
+            {
+                MessageBox.Show("Введите адрес");
+                return;
+            }
+            if (selectedDate == null)
+            {
+                MessageBox.Show("выберите дату");
+                return;
+            }
+            if (TimeSpan.TryParse(selectedTime, out TimeSpan resultTime) == false)
+            {
+                MessageBox.Show("введите корректное время");
+                return;
+            }
+            contextDelivery.DTDelivery = selectedDate.Value.Add(resultTime);
+            App.DB.Delivery.Add(contextDelivery);
+            App.DB.SaveChanges();
+            NavigationService.Navigate(new SalePage());
         }
     }
 }

@@ -8,7 +8,57 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="DeliveryPage">
 
+    <Page.Resources>
+        <Style TargetType="TextBox">
+            <Setter Property="Height" Value="24"/>
+        </Style>
+
+    </Page.Resources>
+
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="8*"/>
+            <RowDefinition Height="93*"/>
+            <RowDefinition Height="14*"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock FontSize="22" Text="Доставка"/>
+        <StackPanel Grid.Row="1" VerticalAlignment="Center" Orientation="Horizontal" Height="258">
+            <UniformGrid HorizontalAlignment="Left" Width="545">
+                <StackPanel  Margin="0 0 14 0" Orientation="Vertical">
+                    <TextBlock Text="Дата доставки"/>
+                    <DatePicker x:Name="DPDate"
+                                BorderThickness="0 0 0 2"
+                                Height="24"/>
+                </StackPanel>
+                <StackPanel  Margin="14 0 0 0" Orientation="Vertical">
+                    <TextBlock Text="Время доставки"/>
+                    <TextBox x:Name="TBTime" BorderThickness="0 0 0 2"/>
+                </StackPanel>
+                <StackPanel  Margin="0 0 14 0" Orientation="Vertical">
+                    <TextBlock Text="Адрес"/>
+                    <TextBox FontSize="15" 
+                             BorderThickness="0 0 0 2" 
+                             Text="{Binding Address}"/>
+                </StackPanel>
+                <StackPanel  Margin="14 0 0 0" Orientation="Vertical">
+                    <TextBlock Text="Телефон"/>
+                    <TextBox FontSize="15" 
+                             BorderThickness="0 0 0 2" 
+                             MaxLength="11"
+                             Text="{Binding PhoneClient}"/>
+                </StackPanel>
+            </UniformGrid>
+        </StackPanel>
+        <StackPanel HorizontalAlignment="Right" Orientation="Horizontal" Grid.Row="2">
+            <Button x:Name="BArrange"
+                    Style="{StaticResource RoundBtnStyle}"
+                    BorderBrush="Transparent" 
+                    Background="#FFB2DB8A"
+                    Content="Оформить"
+                    Width="150"
+                    Height="45"
+                    Click="BArrange_Click"/>
+        </StackPanel>
     </Grid>
 </Page>

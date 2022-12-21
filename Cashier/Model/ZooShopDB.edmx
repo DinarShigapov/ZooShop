@@ -36,7 +36,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="DTDelivery" Type="datetime" Nullable="false" />
           <Property Name="StatusId" Type="int" Nullable="false" />
           <Property Name="PaymentId" Type="int" Nullable="false" />
@@ -464,7 +464,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="DTDelivery" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="StatusId" Type="Int32" Nullable="false" />
           <Property Name="PaymentId" Type="Int32" Nullable="false" />
@@ -739,7 +739,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-      </Schema>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
