@@ -109,7 +109,8 @@
                 <TextBlock Text="Кол-во продукта"
                            Margin="0 20 0 0"/>
                 <TextBox x:Name="TBQuan"
-                         BorderThickness="0 0 0 1"/>
+                         BorderThickness="0 0 0 1"
+                         PreviewTextInput="Digits_PreviewTextInput"/>
                 <TextBlock Text="Поставщик"
                            Margin="0 20 0 0"/>
                 <ComboBox x:Name="CBProvider"

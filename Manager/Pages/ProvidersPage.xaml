@@ -22,7 +22,7 @@
             <RowDefinition Height="14*"/>
         </Grid.RowDefinitions>
 
-        <TextBlock FontSize="22" Text="Добавить нового сотрудника"/>
+        <TextBlock FontSize="22" Text="Добавить нового поставщика"/>
         <StackPanel Grid.Row="1" VerticalAlignment="Center" Orientation="Horizontal" Height="258">
             <UniformGrid HorizontalAlignment="Left" Width="545">
                 <StackPanel  Margin="0 0 14 0" Orientation="Vertical">

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Cashier.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,31 +14,25 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Admin.Pages
+namespace Cashier.Pages
 {
     /// <summary>
-    /// Логика взаимодействия для MenuPage.xaml
+    /// Логика взаимодействия для InfoOrderPage.xaml
     /// </summary>
-    public partial class MenuPage : Page
+    public partial class InfoOrderPage : Page
     {
-        public MenuPage()
+        Delivery contextDelivery;
+        public InfoOrderPage(Delivery delivery)
         {
             InitializeComponent();
-        }
-
-        private void MIProduct_Click(object sender, RoutedEventArgs e)
-        {
-            MenuFrame.Navigate(new ProductsListPage());
-        }
-
-        private void MIEmployee_Click(object sender, RoutedEventArgs e)
-        {
-            MenuFrame.Navigate(new EmployeesListPage());
+            contextDelivery = delivery;
+            DataContext = contextDelivery;
         }
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
-            MenuFrame.Navigate(new ProductsListPage());
+
+            LVProducts.ItemsSource = App.DB.Sale.Where(x => x.PaymentId == contextDelivery.PaymentId).ToList();
         }
     }
 }

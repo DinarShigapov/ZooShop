@@ -18,7 +18,7 @@
                NavigationUIVisibility="Hidden"
                Grid.Column="1"
                Padding="20"/>
-        <StackPanel Background="#FFFAF4">
+        <StackPanel Background="#FFFFF3E5">
             <Image Source="/Resources/logoMain.png" 
                    RenderOptions.BitmapScalingMode="Fant" 
                    Width="100"

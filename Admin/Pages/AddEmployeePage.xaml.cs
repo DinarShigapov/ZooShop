@@ -2,6 +2,7 @@
 using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -23,12 +24,19 @@ namespace Admin.Pages
     /// </summary>
     public partial class AddEmployeePage : Page
     {
-        Employee contextEmployee = new Employee();
+        Employee contextEmployee;
 
-        public AddEmployeePage()
+        public AddEmployeePage(Employee employee)
         {
             InitializeComponent();
+            if (employee.Id != 0)
+            {
+                TBLastName.IsEnabled = false;
+                TBFirstName.IsEnabled = false;
+                TBPatronymic.IsEnabled = false;
+            }
             CBPost.ItemsSource = App.DB.Post.ToList();
+            contextEmployee = employee;
             DataContext = contextEmployee;
         }
 
@@ -66,16 +74,35 @@ namespace Admin.Pages
                 return;
             }
 
-            App.DB.Employee.Add(contextEmployee);
-            App.DB.SaveChanges();
-            MessageBox.Show($"Новый сотрудник " +
+            if (contextEmployee.Id == 0)
+            {
+                App.DB.Employee.Add(contextEmployee);
+                MessageBox.Show($"Новый сотрудник " +
                 $"{contextEmployee.LastName} " +
                 $"{contextEmployee.FirstName.ToCharArray()[0]}. " +
                 $"{contextEmployee.Patronymic.ToCharArray()[0]}. был успешно добавлен");
-            NavigationService.Navigate(new AddEmployeePage());
+            }
+            else 
+            {
+                MessageBox.Show($"Cотрудник " +
+                $"{contextEmployee.LastName} " +
+                $"{contextEmployee.FirstName.ToCharArray()[0]}. " +
+                $"{contextEmployee.Patronymic.ToCharArray()[0]}. был сохранен");
+            }
+            App.DB.SaveChanges();
+            
+            NavigationService.Navigate(new EmployeesListPage());
         }
 
-        
-
+        private void BEditImage_Click(object sender, RoutedEventArgs e)
+        {
+            var dialog = new OpenFileDialog();
+            if (dialog.ShowDialog().GetValueOrDefault())
+            {
+                contextEmployee.Image = File.ReadAllBytes(dialog.FileName);
+                DataContext = null;
+                DataContext = contextEmployee;
+            }
+        }
     }
 }

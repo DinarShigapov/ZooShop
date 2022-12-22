@@ -11,7 +11,8 @@
 
     <Page.Resources>
         <Style TargetType="TextBox">
-            <Setter Property="Height" Value="24"/>
+            <Setter Property="Height" Value="36"/>
+            <Setter Property="VerticalContentAlignment" Value="Bottom"/>
         </Style>
     </Page.Resources>
 
@@ -22,43 +23,45 @@
             <RowDefinition Height="14*"/>
         </Grid.RowDefinitions>
 
-        <TextBlock FontSize="22" Text="Добавить новый товар"/>
+        <TextBlock FontSize="22" Text="Товар"/>
         <StackPanel Grid.Row="1" VerticalAlignment="Center" Orientation="Horizontal">
             <UniformGrid HorizontalAlignment="Left" Width="545">
                 <StackPanel  Margin="0 0 14 0" Orientation="Vertical">
                     <TextBlock Text="Название"/>
-                    <TextBox FontSize="15" 
+                    <TextBox x:Name="TBName"
+                             FontSize="20" 
                              BorderThickness="0 0 0 2" 
-                             Text="{Binding Name}"/>
+                             Text="{Binding Name}" Height="36"/>
                 </StackPanel>
                 <StackPanel Margin="14 0 0 0" Orientation="Vertical">
                     <TextBlock Text="Цена"/>
                     <TextBox BorderThickness="0 0 0 2"
                              Text="{Binding Cost}"
-                             FontSize="15"
-                             PreviewTextInput="Digits_PreviewTextInput"/>
+                             FontSize="20"
+                             PreviewTextInput="Digits_PreviewTextInput" 
+                             Height="36"/>
                 </StackPanel>
                 <StackPanel Margin="0 0 14 0" Orientation="Vertical">
                     <TextBlock Text="Тип продукта"/>
                     <ComboBox 
                         x:Name="CBTypeProduct"
                         IsEditable="True" 
-                        Height="24" 
+                        Height="36" 
                         BorderThickness="0 0 0 2"
                         DisplayMemberPath="Name"
                         SelectedItem="{Binding ProductType}"
-                        FontSize="15"/>
+                        FontSize="20"/>
                 </StackPanel>
                 <StackPanel Margin="14 0 0 0" Orientation="Vertical">
                     <TextBlock Text="Животное"/>
                     <ComboBox 
                         x:Name="CBAnimal"
                         IsEditable="True" 
-                        Height="24" 
+                        Height="36" 
                         BorderThickness="0 0 0 2"
                         DisplayMemberPath="Name"
                         SelectedItem="{Binding Animal}"
-                        FontSize="15"/>
+                        FontSize="20"/>
                 </StackPanel>
             </UniformGrid>
             <StackPanel Margin="25 0 0 0">

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -78,6 +79,14 @@ namespace Manager.Pages
             product = (sender as Button).DataContext as Product;
             BDelProduct.Visibility = Visibility.Visible;
             LVProduct.IsEnabled = false;
+        }
+
+        private void Digits_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            if (Regex.IsMatch(e.Text, @"[0-9]") == false)
+            {
+                e.Handled = true;
+            }
         }
     }
 }

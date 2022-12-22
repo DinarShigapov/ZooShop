@@ -72,8 +72,8 @@
                      TargetType="{x:Type MenuItem}">
 
         <Border x:Name="border"
-                Background="#FFFAF4"
-                BorderBrush="#FFFAF4"
+                Background="#FFFFF3E5"
+                BorderBrush="#FFFFF3E5"
                 BorderThickness="0"
                 Height="50"
                 Width="230">

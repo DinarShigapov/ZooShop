@@ -33,6 +33,24 @@ namespace Admin.Pages
                 MessageBox.Show("Логин или пароль неверный");
                 return;
             }
+            PasswordWindow passwordWindow = new PasswordWindow();
+
+            if (passwordWindow.ShowDialog() == true)
+            {
+                if (passwordWindow.Password == "1983")
+                    MessageBox.Show("Авторизация пройдена");
+                else
+                {
+                    MessageBox.Show("Неверный Пин-код");
+                    return;
+                }
+            }
+            else
+            {
+                MessageBox.Show("Авторизация не пройдена");
+                return;
+            }
+
             NavigationService.Navigate(new MenuPage());
         }
     }

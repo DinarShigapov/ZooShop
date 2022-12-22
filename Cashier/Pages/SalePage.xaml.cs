@@ -78,13 +78,17 @@ namespace Cashier.Pages
                 return;
             }
             var bonusCard = App.DB.BonusCard.FirstOrDefault(x => x.NumberCard == TBCard.Text);
-
             Payment payment = new Payment
             {
                 Employee = App.LoggedEmployee,
                 BonusCard = bonusCard,
                 DateTimeSale = DateTime.Now
             };
+            if (bonusCard != null)
+            {
+                bonusCard.Bonus += decimal.Parse(CountBonus.Text);
+            }
+            
             App.DB.Payment.Add(payment);
             App.DB.SaveChanges();
 
@@ -139,7 +143,6 @@ namespace Cashier.Pages
                         a => a.Name.ToString().Contains(TBSearch.Text.ToLower())
                         || a.ProductType.Name.ToString().Contains(TBSearch.Text.ToLower())).ToList();
             }
-
         }
 
         private void Page_Loaded(object sender, RoutedEventArgs e)

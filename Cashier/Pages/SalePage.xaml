@@ -34,15 +34,15 @@
 
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="437*"/>
-            <ColumnDefinition Width="363*"/>
+            <ColumnDefinition Width="43*"/>
+            <ColumnDefinition Width="37*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition/>
             <RowDefinition Height="5*"/>
         </Grid.RowDefinitions>
         <StackPanel VerticalAlignment="Center"
-                    Orientation="Horizontal">
+                    Orientation="Horizontal" Height="30">
             <TextBlock FontSize="15"  
                        Text="Поиск"
                        Margin="0 0 20 0"
@@ -115,31 +115,36 @@
         </ListView>
         <StackPanel Grid.Row="1" Grid.Column="1"
                     Orientation="Vertical"
-                    HorizontalAlignment="Center">
-            <ListView x:Name="LVBasket" Height="143" Margin="20 0 0 0" Width="310" d:ItemsSource="{d:SampleData ItemCount=5}">
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <Border>
-                            <StackPanel Orientation="Horizontal">
-                                <TextBlock Text="{Binding Name}"/>
-                                <TextBlock Margin="20 0 50 0" Text="{Binding Cost, StringFormat=Цена {0}}" />
-                                <Button Content="Удалить"
+                    HorizontalAlignment="Center" Width="332">
+            <Border Padding="10" CornerRadius="20" BorderThickness="1">
+                <Border.BorderBrush>
+                    <SolidColorBrush Color="Black" Opacity="0.2"/>
+                </Border.BorderBrush>
+                <ListView x:Name="LVBasket" BorderThickness="0" Height="170" Width="310" d:ItemsSource="{d:SampleData ItemCount=5}">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <Border>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="{Binding Name}"/>
+                                    <TextBlock Margin="20 0 30 0" Text="{Binding Cost, StringFormat=Цена {0}}" />
+                                    <Button Content="Удалить"
                                             x:Name="BDelItem"
                                             Click="BDelItem_Click"
                                             Background="Transparent"
                                             BorderThickness="0"/>
-                            </StackPanel>
-                        </Border>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
+                                </StackPanel>
+                            </Border>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </Border>
             <StackPanel HorizontalAlignment="Center"
                             Margin="0 20">
                 <TextBlock Text="Карта (если имеется)"/>
-                <TextBox BorderThickness="0 0 0 1.5"
-                             Height="25"
+                <TextBox Height="32"
                              x:Name="TBCard"
-                             VerticalContentAlignment="Bottom"/>
+                             VerticalContentAlignment="Center" 
+                             FontSize="20"/>
                 <TextBlock x:Name="CountBonus"
                                HorizontalAlignment="Right"/>
                 <Button Content="Оформить"

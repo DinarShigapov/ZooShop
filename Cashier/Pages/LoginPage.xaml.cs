@@ -38,6 +38,11 @@ namespace Cashier.Pages
                 MessageBox.Show("Пароль неверный");
                 return;
             }
+            if (employee.IsDelete == true)
+            {
+                MessageBox.Show("Данный сотрудник был удален");
+                return;
+            }
             if (employee.PostId != 2)
             {
                 return;

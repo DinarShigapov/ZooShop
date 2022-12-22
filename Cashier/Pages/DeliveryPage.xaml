@@ -29,11 +29,12 @@
                     <TextBlock Text="Дата доставки"/>
                     <DatePicker x:Name="DPDate"
                                 BorderThickness="0 0 0 2"
-                                Height="24"/>
+                                Height="24"
+                                />
                 </StackPanel>
                 <StackPanel  Margin="14 0 0 0" Orientation="Vertical">
                     <TextBlock Text="Время доставки"/>
-                    <TextBox x:Name="TBTime" BorderThickness="0 0 0 2"/>
+                    <TextBox x:Name="TBTime" BorderThickness="0 0 0 2" PreviewTextInput="TBTime_PreviewTextInput" PreviewKeyDown="TBTime_PreviewKeyDown"/>
                 </StackPanel>
                 <StackPanel  Margin="0 0 14 0" Orientation="Vertical">
                     <TextBlock Text="Адрес"/>
@@ -46,7 +47,8 @@
                     <TextBox FontSize="15" 
                              BorderThickness="0 0 0 2" 
                              MaxLength="11"
-                             Text="{Binding PhoneClient}"/>
+                             Text="{Binding PhoneClient}"
+                             PreviewTextInput="Digits_PreviewTextInput"/>
                 </StackPanel>
             </UniformGrid>
         </StackPanel>

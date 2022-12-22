@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -26,6 +27,7 @@ namespace Cashier.Pages
         {
             InitializeComponent();
             contextDelivery = delivery;
+            DPDate.Text = $"{DateTime.Now}";
             DataContext = contextDelivery;
         }
 
@@ -40,18 +42,57 @@ namespace Cashier.Pages
             }
             if (selectedDate == null)
             {
-                MessageBox.Show("выберите дату");
+                MessageBox.Show("Выберите дату");
                 return;
             }
             if (TimeSpan.TryParse(selectedTime, out TimeSpan resultTime) == false)
             {
-                MessageBox.Show("введите корректное время");
+                MessageBox.Show("Введите корректное время");
                 return;
             }
             contextDelivery.DTDelivery = selectedDate.Value.Add(resultTime);
+            if (contextDelivery.DTDelivery <= DateTime.Now)
+            {
+                MessageBox.Show("Введите корректное время");
+                return;
+            }
             App.DB.Delivery.Add(contextDelivery);
             App.DB.SaveChanges();
             NavigationService.Navigate(new SalePage());
+        }
+
+        private void Digits_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            if (Regex.IsMatch(e.Text, @"[0-9]") == false)
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void TBTime_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            TBTime.MaxLength = 5;
+
+            if (!(Char.IsDigit(e.Text, 0) || (e.Text == ":") && (!TBTime.Text.Contains(":") && TBTime.Text.Length != 0)))
+            {
+                e.Handled = true;
+            }
+            if (e.Text == ":" && (TBTime.Text.Length > 2 || TBTime.Text.Length < 2))
+            {
+                e.Handled = true;
+            }
+            if (TBTime.Text.Length >= 4 && TBTime.Text[2].ToString() != ":")
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void TBTime_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter && TBTime.Text.Length == 4)
+            {
+                TBTime.Text = $"{TBTime.Text[0]}{TBTime.Text[1]}:{TBTime.Text[2]}{TBTime.Text[3]}";
+            }
         }
     }
 }

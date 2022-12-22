@@ -36,5 +36,9 @@ namespace Cashier.Pages
             MenuFrame.Navigate(new CardActivationPage());
         }
 
+        private void MIOrder_Click(object sender, RoutedEventArgs e)
+        {
+            MenuFrame.Navigate(new OrdersListPage());
+        }
     }
 }

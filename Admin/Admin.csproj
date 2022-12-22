@@ -84,11 +84,23 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\EmployeesListPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\LoginPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\MenuPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\PasswordWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\ProductsListPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -116,6 +128,7 @@
     <Compile Include="Model\Employee.cs">
       <DependentUpon>ZooShopDB.tt</DependentUpon>
     </Compile>
+    <Compile Include="Model\PartialClass\Employee.cs" />
     <Compile Include="Model\Payment.cs">
       <DependentUpon>ZooShopDB.tt</DependentUpon>
     </Compile>
@@ -161,11 +174,20 @@
     <Compile Include="Pages\AddProductPage.xaml.cs">
       <DependentUpon>AddProductPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\EmployeesListPage.xaml.cs">
+      <DependentUpon>EmployeesListPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\LoginPage.xaml.cs">
       <DependentUpon>LoginPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\MenuPage.xaml.cs">
       <DependentUpon>MenuPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\PasswordWindow.xaml.cs">
+      <DependentUpon>PasswordWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ProductsListPage.xaml.cs">
+      <DependentUpon>ProductsListPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
@@ -222,6 +244,8 @@
       <DependentUpon>ZooShopDB.edmx</DependentUpon>
       <LastGenOutput>ZooShopDB.cs</LastGenOutput>
     </Content>
+    <Resource Include="Resources\noname.png" />
+    <Resource Include="Resources\unknown.png" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

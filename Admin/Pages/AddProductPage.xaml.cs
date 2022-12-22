@@ -24,12 +24,19 @@ namespace Admin.Pages
     /// </summary>
     public partial class AddProductPage : Page
     {
-        Product contextProduct = new Product();
-        public AddProductPage()
+        Product contextProduct;
+        public AddProductPage(Product product)
         {
             InitializeComponent();
+            if (product.Id != 0)
+            {
+                TBName.IsEnabled = false;
+                CBAnimal.IsEnabled = false;
+                CBTypeProduct.IsEnabled = false;
+            }
             CBAnimal.ItemsSource = App.DB.Animal.ToList();
             CBTypeProduct.ItemsSource = App.DB.ProductType.ToList();
+            contextProduct = product;
             DataContext = contextProduct;
         }
 
@@ -78,10 +85,18 @@ namespace Admin.Pages
                 return;
             }
 
-            App.DB.Product.Add(contextProduct);
+
+            if (contextProduct.Id == 0)
+            {
+                App.DB.Product.Add(contextProduct);
+                MessageBox.Show($"Товар {contextProduct.Name} был успешно добавлен");
+            }
+            else
+            {
+                MessageBox.Show($"Товар {contextProduct.Name} был успешно изменен");
+            }
             App.DB.SaveChanges();
-            MessageBox.Show($"Товар {contextProduct.Name} был успешно добавлен");
-            NavigationService.Navigate(new AddProductPage());
+            NavigationService.Navigate(new ProductsListPage());
         }
     }
 }

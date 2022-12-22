@@ -61,6 +61,8 @@
           <Property Name="Login" Type="nvarchar" MaxLength="20" Nullable="false" />
           <Property Name="Password" Type="nvarchar" MaxLength="20" Nullable="false" />
           <Property Name="PostId" Type="int" Nullable="false" />
+          <Property Name="Image" Type="image" />
+          <Property Name="IsDelete" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="Payment">
           <Key>
@@ -492,6 +494,8 @@
           <Property Name="Login" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
           <Property Name="Password" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
           <Property Name="PostId" Type="Int32" Nullable="false" />
+          <Property Name="Image" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="IsDelete" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="Post" Relationship="ZooShopDBModel.FK_Employee_Post" FromRole="Employee" ToRole="Post" />
           <NavigationProperty Name="Payment" Relationship="ZooShopDBModel.FK_Payment_Employee" FromRole="Employee" ToRole="Payment" />
         </EntityType>
@@ -798,6 +802,8 @@
           <EntitySetMapping Name="Employee">
             <EntityTypeMapping TypeName="ZooShopDBModel.Employee">
               <MappingFragment StoreEntitySet="Employee">
+                <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
                 <ScalarProperty Name="PostId" ColumnName="PostId" />
                 <ScalarProperty Name="Password" ColumnName="Password" />
                 <ScalarProperty Name="Login" ColumnName="Login" />
