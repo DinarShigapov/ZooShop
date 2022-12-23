@@ -7,17 +7,19 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Cashier.Model
+namespace Cashier
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class Stock
+    public partial class CompositionOfSupply
     {
         public int Id { get; set; }
+        public int SupplyId { get; set; }
         public int ProductId { get; set; }
         public short Quantity { get; set; }
     
         public virtual Product Product { get; set; }
+        public virtual Supply Supply { get; set; }
     }
 }

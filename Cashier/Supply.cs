@@ -7,23 +7,25 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Cashier.Model
+namespace Cashier
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class Post
+    public partial class Supply
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Post()
+        public Supply()
         {
-            this.Employee = new HashSet<Employee>();
+            this.CompositionOfSupply = new HashSet<CompositionOfSupply>();
         }
     
         public int Id { get; set; }
-        public string Name { get; set; }
+        public int ProviderId { get; set; }
+        public System.DateTime DateTimeSupply { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Employee> Employee { get; set; }
+        public virtual ICollection<CompositionOfSupply> CompositionOfSupply { get; set; }
+        public virtual Provider Provider { get; set; }
     }
 }

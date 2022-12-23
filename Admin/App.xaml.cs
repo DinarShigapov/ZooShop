@@ -14,6 +14,6 @@ namespace Admin
     /// </summary>
     public partial class App : Application
     {
-        public static ZooShopDBEntities DB = new ZooShopDBEntities();
+        public static ZooShopEntities DB = new ZooShopEntities();
     }
 }

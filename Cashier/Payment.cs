@@ -7,35 +7,30 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Cashier.Model
+namespace Cashier
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class Product
+    public partial class Payment
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Product()
+        public Payment()
         {
-            this.CompositionOfSupply = new HashSet<CompositionOfSupply>();
+            this.Delivery = new HashSet<Delivery>();
             this.Sale = new HashSet<Sale>();
-            this.Stock = new HashSet<Stock>();
         }
     
         public int Id { get; set; }
-        public string Name { get; set; }
-        public decimal Cost { get; set; }
-        public int ProductTypeId { get; set; }
-        public int AnimalId { get; set; }
-        public byte[] Image { get; set; }
+        public int EmployeeId { get; set; }
+        public Nullable<int> BonusCardId { get; set; }
+        public System.DateTime DateTimeSale { get; set; }
     
-        public virtual Animal Animal { get; set; }
+        public virtual BonusCard BonusCard { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<CompositionOfSupply> CompositionOfSupply { get; set; }
-        public virtual ProductType ProductType { get; set; }
+        public virtual ICollection<Delivery> Delivery { get; set; }
+        public virtual Employee Employee { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Sale> Sale { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Stock> Stock { get; set; }
     }
 }

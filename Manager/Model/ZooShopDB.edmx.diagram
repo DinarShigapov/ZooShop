@@ -4,34 +4,34 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="3ab3749e8b834862b308f70fc536c1e8" Name="Diagram1" ZoomLevel="81">
-        <EntityTypeShape EntityType="ZooShopDBModel.Animal" Width="1.5" PointX="0.75" PointY="4.25" />
-        <EntityTypeShape EntityType="ZooShopDBModel.BonusCard" Width="1.5" PointX="0.75" PointY="17.25" />
-        <EntityTypeShape EntityType="ZooShopDBModel.CompositionOfSupply" Width="1.5" PointX="5.25" PointY="3.875" />
-        <EntityTypeShape EntityType="ZooShopDBModel.Delivery" Width="1.5" PointX="5.25" PointY="13.125" />
-        <EntityTypeShape EntityType="ZooShopDBModel.DeliveryStatus" Width="1.5" PointX="3" PointY="16.625" />
-        <EntityTypeShape EntityType="ZooShopDBModel.Employee" Width="1.5" PointX="0.75" PointY="8.375" />
-        <EntityTypeShape EntityType="ZooShopDBModel.Payment" Width="1.5" PointX="3" PointY="10.125" />
-        <EntityTypeShape EntityType="ZooShopDBModel.Post" Width="1.5" PointX="1.5" PointY="14.125" />
-        <EntityTypeShape EntityType="ZooShopDBModel.Product" Width="1.5" PointX="3" PointY="3.5" />
-        <EntityTypeShape EntityType="ZooShopDBModel.ProductType" Width="1.5" PointX="0.75" PointY="1.25" />
-        <EntityTypeShape EntityType="ZooShopDBModel.Provider" Width="1.5" PointX="0.75" PointY="20.75" />
-        <EntityTypeShape EntityType="ZooShopDBModel.Sale" Width="1.5" PointX="5.25" PointY="0.875" />
-        <EntityTypeShape EntityType="ZooShopDBModel.Stock" Width="1.5" PointX="5.25" PointY="10" />
-        <EntityTypeShape EntityType="ZooShopDBModel.Supply" Width="1.5" PointX="3" PointY="21" />
-        <AssociationConnector Association="ZooShopDBModel.FK_Product_Animal" />
-        <AssociationConnector Association="ZooShopDBModel.FK_Payment_BonusCard" />
-        <AssociationConnector Association="ZooShopDBModel.FK_CompositionOfSupply_Product" />
-        <AssociationConnector Association="ZooShopDBModel.FK_CompositionOfSupply_Supply" />
-        <AssociationConnector Association="ZooShopDBModel.FK_Delivery_DeliveryStatus" />
-        <AssociationConnector Association="ZooShopDBModel.FK_Delivery_Payment" />
-        <AssociationConnector Association="ZooShopDBModel.FK_Employee_Post" />
-        <AssociationConnector Association="ZooShopDBModel.FK_Payment_Employee" />
-        <AssociationConnector Association="ZooShopDBModel.FK_Sale_Payment" />
-        <AssociationConnector Association="ZooShopDBModel.FK_Product_ProductType" />
-        <AssociationConnector Association="ZooShopDBModel.FK_Sale_Product" />
-        <AssociationConnector Association="ZooShopDBModel.FK_Stock_Product" />
-        <AssociationConnector Association="ZooShopDBModel.FK_Supply_Provider" />
+      <Diagram DiagramId="800cba20995d46b1b04d02ba97548b84" Name="Diagram1">
+        <EntityTypeShape EntityType="ZooShopDBModel.Animal" Width="1.5" PointX="0.75" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ZooShopDBModel.BonusCard" Width="1.5" PointX="0.75" PointY="8.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ZooShopDBModel.CompositionOfSupply" Width="1.5" PointX="5.25" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ZooShopDBModel.Delivery" Width="1.5" PointX="5.25" PointY="13.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ZooShopDBModel.DeliveryStatus" Width="1.5" PointX="3" PointY="13.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ZooShopDBModel.Employee" Width="1.5" PointX="0.75" PointY="11.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ZooShopDBModel.Payment" Width="1.5" PointX="3" PointY="10.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ZooShopDBModel.Post" Width="1.5" PointX="1.5" PointY="16.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ZooShopDBModel.Product" Width="1.5" PointX="3" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ZooShopDBModel.ProductType" Width="1.5" PointX="0.75" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ZooShopDBModel.Provider" Width="1.5" PointX="0.75" PointY="18.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ZooShopDBModel.Sale" Width="1.5" PointX="5.25" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ZooShopDBModel.Stock" Width="1.5" PointX="5.25" PointY="10" IsExpanded="true" />
+        <EntityTypeShape EntityType="ZooShopDBModel.Supply" Width="1.5" PointX="3" PointY="19" IsExpanded="true" />
+        <AssociationConnector Association="ZooShopDBModel.FK_Product_Animal" ManuallyRouted="false" />
+        <AssociationConnector Association="ZooShopDBModel.FK_Payment_BonusCard" ManuallyRouted="false" />
+        <AssociationConnector Association="ZooShopDBModel.FK_CompositionOfSupply_Product" ManuallyRouted="false" />
+        <AssociationConnector Association="ZooShopDBModel.FK_CompositionOfSupply_Supply" ManuallyRouted="false" />
+        <AssociationConnector Association="ZooShopDBModel.FK_Delivery_DeliveryStatus" ManuallyRouted="false" />
+        <AssociationConnector Association="ZooShopDBModel.FK_Delivery_Payment" ManuallyRouted="false" />
+        <AssociationConnector Association="ZooShopDBModel.FK_Employee_Post" ManuallyRouted="false" />
+        <AssociationConnector Association="ZooShopDBModel.FK_Payment_Employee" ManuallyRouted="false" />
+        <AssociationConnector Association="ZooShopDBModel.FK_Sale_Payment" ManuallyRouted="false" />
+        <AssociationConnector Association="ZooShopDBModel.FK_Product_ProductType" ManuallyRouted="false" />
+        <AssociationConnector Association="ZooShopDBModel.FK_Sale_Product" ManuallyRouted="false" />
+        <AssociationConnector Association="ZooShopDBModel.FK_Stock_Product" ManuallyRouted="false" />
+        <AssociationConnector Association="ZooShopDBModel.FK_Supply_Provider" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

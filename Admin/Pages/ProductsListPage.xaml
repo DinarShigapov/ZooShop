@@ -59,7 +59,8 @@
                         Click="BRemove_Click"
                         Style="{DynamicResource RoundBtnStyle}"
                         Margin="5 0"
-                        Background="#FFDB8A8A"/>
+                        Background="#FFDB8A8A"
+                        Visibility="Hidden"/>
             </StackPanel>
             <ListView BorderThickness="0" x:Name="LVItems" d:ItemsSource="{d:SampleData ItemCount=5}">
                 <ListView.ItemsPanel>

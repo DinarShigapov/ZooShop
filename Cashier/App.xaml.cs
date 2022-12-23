@@ -14,7 +14,7 @@ namespace Cashier
     /// </summary>
     public partial class App : Application
     {
-        public static ZooShopDBEntities DB = new ZooShopDBEntities();
+        public static ZooShopEntities DB = new ZooShopEntities();
         public static Employee LoggedEmployee;
     }
 }

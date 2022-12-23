@@ -7,23 +7,28 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Cashier.Model
+namespace Cashier
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class Animal
+    public partial class Provider
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Animal()
+        public Provider()
         {
-            this.Product = new HashSet<Product>();
+            this.Supply = new HashSet<Supply>();
         }
     
         public int Id { get; set; }
-        public string Name { get; set; }
+        public string LastName { get; set; }
+        public string FirstName { get; set; }
+        public string Patronymic { get; set; }
+        public string Phone { get; set; }
+        public string Email { get; set; }
+        public string Address { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Product> Product { get; set; }
+        public virtual ICollection<Supply> Supply { get; set; }
     }
 }

@@ -7,25 +7,19 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Cashier.Model
+namespace Cashier
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class Supply
+    public partial class Sale
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Supply()
-        {
-            this.CompositionOfSupply = new HashSet<CompositionOfSupply>();
-        }
-    
         public int Id { get; set; }
-        public int ProviderId { get; set; }
-        public System.DateTime DateTimeSupply { get; set; }
+        public int ProductId { get; set; }
+        public int PaymentId { get; set; }
+        public short Quantity { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<CompositionOfSupply> CompositionOfSupply { get; set; }
-        public virtual Provider Provider { get; set; }
+        public virtual Payment Payment { get; set; }
+        public virtual Product Product { get; set; }
     }
 }

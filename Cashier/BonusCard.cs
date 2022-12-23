@@ -7,28 +7,27 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Cashier.Model
+namespace Cashier
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class Provider
+    public partial class BonusCard
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Provider()
+        public BonusCard()
         {
-            this.Supply = new HashSet<Supply>();
+            this.Payment = new HashSet<Payment>();
         }
     
         public int Id { get; set; }
+        public string NumberCard { get; set; }
         public string LastName { get; set; }
         public string FirstName { get; set; }
         public string Patronymic { get; set; }
-        public string Phone { get; set; }
-        public string Email { get; set; }
-        public string Address { get; set; }
+        public decimal Bonus { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Supply> Supply { get; set; }
+        public virtual ICollection<Payment> Payment { get; set; }
     }
 }

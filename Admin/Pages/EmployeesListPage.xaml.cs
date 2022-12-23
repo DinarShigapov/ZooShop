@@ -77,7 +77,7 @@ namespace Admin.Pages
             {
                 LVEmployees.ItemsSource =
                     App.DB.Employee.Where(x => x.IsDelete == false).Where(
-                        a => a.StrFullName.ToString().Contains(TBSearch.Text.ToLower()));
+                        a => a.StrFullName.ToString().Contains(TBSearch.Text.ToLower())).ToList();
             }
 
         }

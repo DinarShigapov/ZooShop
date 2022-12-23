@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="e5309aad3ca049e086c80db1584ff222" Name="Diagram1">
+      <Diagram DiagramId="165bc4173e994eecb06ee197b7cab6b9" Name="Diagram1">
         <EntityTypeShape EntityType="ZooShopDBModel.Animal" Width="1.5" PointX="0.75" PointY="4.25" IsExpanded="true" />
         <EntityTypeShape EntityType="ZooShopDBModel.BonusCard" Width="1.5" PointX="0.75" PointY="8.375" IsExpanded="true" />
         <EntityTypeShape EntityType="ZooShopDBModel.CompositionOfSupply" Width="1.5" PointX="5.25" PointY="3.875" IsExpanded="true" />

@@ -234,21 +234,23 @@
     <Resource Include="Resources\logoMainv4.png" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Resources\noname.png" />
+    <Resource Include="Resources\unknown.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
     <Content Include="Model\ZooShopDB.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>ZooShopDB.Context.cs</LastGenOutput>
       <DependentUpon>ZooShopDB.edmx</DependentUpon>
+      <LastGenOutput>ZooShopDB.Context.cs</LastGenOutput>
     </Content>
     <Content Include="Model\ZooShopDB.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>ZooShopDB.edmx</DependentUpon>
       <LastGenOutput>ZooShopDB.cs</LastGenOutput>
     </Content>
-    <Resource Include="Resources\noname.png" />
-    <Resource Include="Resources\unknown.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -13,10 +13,10 @@ namespace Admin.Model
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class ZooShopDBEntities : DbContext
+    public partial class ZooShopEntities : DbContext
     {
-        public ZooShopDBEntities()
-            : base("name=ZooShopDBEntities")
+        public ZooShopEntities()
+            : base("name=ZooShopEntities")
         {
         }
     

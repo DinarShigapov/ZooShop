@@ -7,21 +7,17 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Cashier.Model
+namespace Cashier
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class Delivery
+    public partial class Stock
     {
         public int Id { get; set; }
-        public System.DateTime DTDelivery { get; set; }
-        public int StatusId { get; set; }
-        public int PaymentId { get; set; }
-        public string Address { get; set; }
-        public string PhoneClient { get; set; }
+        public int ProductId { get; set; }
+        public short Quantity { get; set; }
     
-        public virtual DeliveryStatus DeliveryStatus { get; set; }
-        public virtual Payment Payment { get; set; }
+        public virtual Product Product { get; set; }
     }
 }

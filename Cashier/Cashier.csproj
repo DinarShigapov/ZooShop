@@ -64,6 +64,63 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Animal.cs">
+      <DependentUpon>ZooShopDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BonusCard.cs">
+      <DependentUpon>ZooShopDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CompositionOfSupply.cs">
+      <DependentUpon>ZooShopDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Delivery.cs">
+      <DependentUpon>ZooShopDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DeliveryStatus.cs">
+      <DependentUpon>ZooShopDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Employee.cs">
+      <DependentUpon>ZooShopDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Payment.cs">
+      <DependentUpon>ZooShopDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Post.cs">
+      <DependentUpon>ZooShopDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Product.cs">
+      <DependentUpon>ZooShopDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ProductType.cs">
+      <DependentUpon>ZooShopDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Provider.cs">
+      <DependentUpon>ZooShopDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Sale.cs">
+      <DependentUpon>ZooShopDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Stock.cs">
+      <DependentUpon>ZooShopDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Supply.cs">
+      <DependentUpon>ZooShopDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ZooShopDB.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ZooShopDB.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ZooShopDB.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ZooShopDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ZooShopDB.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ZooShopDB.edmx</DependentUpon>
+    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -110,64 +167,7 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Model\Animal.cs">
-      <DependentUpon>ZooShopDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\BonusCard.cs">
-      <DependentUpon>ZooShopDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\CompositionOfSupply.cs">
-      <DependentUpon>ZooShopDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\Delivery.cs">
-      <DependentUpon>ZooShopDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\DeliveryStatus.cs">
-      <DependentUpon>ZooShopDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\Employee.cs">
-      <DependentUpon>ZooShopDB.tt</DependentUpon>
-    </Compile>
     <Compile Include="Model\PartialClass\Delivery.cs" />
-    <Compile Include="Model\Payment.cs">
-      <DependentUpon>ZooShopDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\Post.cs">
-      <DependentUpon>ZooShopDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\Product.cs">
-      <DependentUpon>ZooShopDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\ProductType.cs">
-      <DependentUpon>ZooShopDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\Provider.cs">
-      <DependentUpon>ZooShopDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\Sale.cs">
-      <DependentUpon>ZooShopDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\Stock.cs">
-      <DependentUpon>ZooShopDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\Supply.cs">
-      <DependentUpon>ZooShopDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\ZooShopDB.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ZooShopDB.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\ZooShopDB.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ZooShopDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\ZooShopDB.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ZooShopDB.edmx</DependentUpon>
-    </Compile>
     <Compile Include="Pages\CardActivationPage.xaml.cs">
       <DependentUpon>CardActivationPage.xaml</DependentUpon>
     </Compile>
@@ -206,14 +206,14 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Resource Include="Fonts\Jost.ttf" />
-    <EntityDeploy Include="Model\ZooShopDB.edmx">
+    <EntityDeploy Include="ZooShopDB.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>ZooShopDB.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="Model\ZooShopDB.edmx.diagram">
+    <None Include="ZooShopDB.edmx.diagram">
       <DependentUpon>ZooShopDB.edmx</DependentUpon>
     </None>
+    <Resource Include="Fonts\Jost.ttf" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -224,16 +224,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Model\ZooShopDB.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>ZooShopDB.Context.cs</LastGenOutput>
-      <DependentUpon>ZooShopDB.edmx</DependentUpon>
-    </Content>
-    <Content Include="Model\ZooShopDB.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>ZooShopDB.edmx</DependentUpon>
-      <LastGenOutput>ZooShopDB.cs</LastGenOutput>
-    </Content>
     <Resource Include="Resources\shutdown_mo.png" />
     <Resource Include="Resources\shutdown_def.png" />
     <Resource Include="Resources\logoMainv4.png" />
@@ -242,6 +232,17 @@
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="ZooShopDB.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ZooShopDB.edmx</DependentUpon>
+      <LastGenOutput>ZooShopDB.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="ZooShopDB.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ZooShopDB.edmx</DependentUpon>
+      <LastGenOutput>ZooShopDB.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
