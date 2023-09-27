@@ -1,0 +1,118 @@
+﻿<Page x:Class="Admin.Pages.AddEmployeePage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Admin.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="AddEmployeePage">
+
+    <Page.Resources>
+        <Style TargetType="TextBox">
+            <Setter Property="Height" Value="36"/>
+            <Setter Property="VerticalContentAlignment" Value="Bottom"/>
+        </Style>
+
+    </Page.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="8*"/>
+            <RowDefinition Height="93*"/>
+            <RowDefinition Height="14*"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock FontSize="22" Text="Cотрудник"/>
+        <StackPanel Grid.Row="1" VerticalAlignment="Center" Orientation="Horizontal" Height="344">
+            <StackPanel VerticalAlignment="Center">
+                <Grid>
+                    <Ellipse Height="150" Width="150">
+                        <Ellipse.Fill>
+                            <ImageBrush ImageSource="{Binding Image}" Stretch="UniformToFill"/>
+                        </Ellipse.Fill>
+                    </Ellipse>
+                    <Ellipse Height="150" Width="150">
+                        <Ellipse.Fill>
+                            <SolidColorBrush Color="Black" Opacity="0.03"/>
+                        </Ellipse.Fill>
+                    </Ellipse>
+                </Grid>
+                <Button x:Name="BEditImage"
+                        Height="30"
+                        Width="100" 
+                        Margin="0 -8 0 0" 
+                        BorderBrush="Transparent"
+                        Content="Добавить"
+                        FontSize="13"
+                        Click="BEditImage_Click">
+                    <Button.Background>
+                        <SolidColorBrush Color="#FFDFDFDF" Opacity="0.4"/>
+                    </Button.Background>
+                </Button>
+            </StackPanel>
+            <UniformGrid
+                         Width="545"
+                         VerticalAlignment="Center"
+                         Margin="30 100 0 0" 
+                         Height="255">
+                <StackPanel  Margin="0 0 14 0" Orientation="Vertical">
+                    <TextBlock Text="Фамилия"/>
+                    <TextBox x:Name="TBLastName"
+                             FontSize="20" 
+                             BorderThickness="0 0 0 2" 
+                             Text="{Binding LastName}"
+                             Margin="0 0 0 20"/>
+                </StackPanel>
+                <StackPanel  Margin="7 0 7 0" Orientation="Vertical">
+                    <TextBlock Text="Имя"/>
+                    <TextBox FontSize="20" 
+                             x:Name="TBFirstName"
+                             BorderThickness="0 0 0 2" 
+                             Text="{Binding FirstName}"
+                             Margin="0 0 0 20"/>
+                </StackPanel>
+                <StackPanel  Margin="14 0 0 0" Orientation="Vertical">
+                    <TextBlock Text="Отчество"/>
+                    <TextBox FontSize="20" 
+                             x:Name="TBPatronymic"
+                             BorderThickness="0 0 0 2" 
+                             Text="{Binding Patronymic}"/>
+                </StackPanel>
+                <StackPanel  Margin="0 0 14 0" Orientation="Vertical">
+                    <TextBlock Text="Логин"/>
+                    <TextBox FontSize="20" 
+                             BorderThickness="0 0 0 2" 
+                             Text="{Binding Login}"/>
+                </StackPanel>
+                <StackPanel  Margin="7 0 7 0" Orientation="Vertical">
+                    <TextBlock Text="Password"/>
+                    <TextBox FontSize="20" 
+                             BorderThickness="0 0 0 2" 
+                             Text="{Binding Password}"/>
+                </StackPanel>
+                <StackPanel Margin="14 0 0 0" Orientation="Vertical">
+                    <TextBlock Text="Должность"/>
+                    <ComboBox 
+                        x:Name="CBPost"
+                        IsEditable="True" 
+                        Height="36" 
+                        BorderThickness="0 0 0 2"
+                        DisplayMemberPath="Name"
+                        SelectedItem="{Binding Post}"
+                        FontSize="20"/>
+                </StackPanel>
+            </UniformGrid>
+        </StackPanel>
+        <StackPanel HorizontalAlignment="Right" Orientation="Horizontal" Grid.Row="2">
+            <Button x:Name="BSave"
+                    Style="{StaticResource RoundBtnStyle}"
+                    BorderBrush="Transparent" 
+                    Background="#FFB2DB8A"
+                    Content="Сохранить"
+                    Width="150"
+                    Height="45"
+                    Click="BSave_Click"/>
+        </StackPanel>
+    </Grid>
+</Page>

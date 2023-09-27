@@ -1,0 +1,67 @@
+﻿<Page x:Class="Cashier.Pages.CardActivationPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Cashier.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="600" d:DesignWidth="1000"
+      Title="CardActivationPage">
+
+    <Page.Resources>
+        <Style TargetType="TextBox">
+            <Setter Property="Height" Value="24"/>
+        </Style>
+
+    </Page.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="8*"/>
+            <RowDefinition Height="93*"/>
+            <RowDefinition Height="14*"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock FontSize="22" Text="Добавить новую карту"/>
+        <StackPanel Grid.Row="1" VerticalAlignment="Center" Orientation="Horizontal" Height="258">
+            <UniformGrid HorizontalAlignment="Left" Width="545">
+                <StackPanel  Margin="0 0 14 0" Orientation="Vertical">
+                    <TextBlock Text="Фамилия"/>
+                    <TextBox FontSize="15" 
+                             BorderThickness="0 0 0 2" 
+                             Text="{Binding LastName}"/>
+                </StackPanel>
+                <StackPanel  Margin="7 0 7 0" Orientation="Vertical">
+                    <TextBlock Text="Имя"/>
+                    <TextBox FontSize="15" 
+                             BorderThickness="0 0 0 2" 
+                             Text="{Binding FirstName}"/>
+                </StackPanel>
+                <StackPanel  Margin="14 0 0 0" Orientation="Vertical">
+                    <TextBlock Text="Отчество"/>
+                    <TextBox FontSize="15" 
+                             BorderThickness="0 0 0 2" 
+                             Text="{Binding Patronymic}"/>
+                </StackPanel>
+                <StackPanel Orientation="Vertical">
+                    <TextBlock Text="Номер карты"/>
+                    <TextBox FontSize="15" 
+                             BorderThickness="0 0 0 2" 
+                             Text="{Binding NumberCard}"
+                             IsEnabled="False"/>
+                </StackPanel>
+                <StackPanel/>
+            </UniformGrid>
+        </StackPanel>
+        <StackPanel HorizontalAlignment="Right" Orientation="Horizontal" Grid.Row="2">
+            <Button x:Name="BSave"
+                    Style="{StaticResource RoundBtnStyle}"
+                    BorderBrush="Transparent" 
+                    Background="#FFB2DB8A"
+                    Content="Сохранить"
+                    Width="150"
+                    Height="45"
+                    Click="BSave_Click"/>
+        </StackPanel>
+    </Grid>
+</Page>
