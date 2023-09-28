@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Cashier.Classes;
 using Cashier.Model;
 
 namespace Cashier.Pages
@@ -21,6 +22,7 @@ namespace Cashier.Pages
     /// </summary>
     public partial class SalePage : Page
     {
+        List<ProductQuantity> valueProduct = new List<ProductQuantity> ();
         List<Product> products = new List<Product>();
         public SalePage()
         {
@@ -35,20 +37,30 @@ namespace Cashier.Pages
             if (buf == null)
                 return;
 
-            var query = products.GroupBy(x => x)
-              .Where(g => g.Count() >= 1)
-              .ToDictionary(x => x.Key, y => y.Count());
+            var productBuffer = valueProduct.FirstOrDefault(x => x.Product.Id == selected.Id);
 
-            if (query.FirstOrDefault(x => x.Key.Id == selected.Id).Value == buf.Quantity ||
-                buf.Quantity <= 0)
+            if (buf.Quantity <= 0)
             {
                 MessageBox.Show("Этого товара нет в наличии");
                 return;
             }
 
+            if (productBuffer == null)
+            {
+                valueProduct.Add(new ProductQuantity(selected, 1));
+            }
+            else
+            {
+                productBuffer.Quantity += 1;
+            }
 
-            products.Add(selected);
-            LVBasket.ItemsSource = products.ToList();
+            //var query = products.GroupBy(x => x)
+            //  .Where(g => g.Count() >= 1)
+            //  .ToDictionary(x => x.Key, y => y.Count());
+
+
+           
+            LVBasket.ItemsSource = valueProduct.ToList();
             RefreshBonus();
         }
 
@@ -72,7 +84,7 @@ namespace Cashier.Pages
 
         private void BSaleProducts_Click(object sender, RoutedEventArgs e)
         {
-            if (products.Count == 0)
+            if (valueProduct.Count == 0)
             {
                 MessageBox.Show("В корзине нет товаров");
                 return;
@@ -89,22 +101,19 @@ namespace Cashier.Pages
                 bonusCard.Bonus += decimal.Parse(CountBonus.Text);
             }
 
-            var query = products.GroupBy(x => x)
-              .Where(g => g.Count() >= 1)
-              .ToDictionary(x => x.Key, y => y.Count());
 
 
-            foreach (var item in query)
+            foreach (var item in valueProduct)
             {
                 Sale sale = new Sale
                 {
-                    Product = item.Key,
+                    Product = item.Product,
                     Payment = payment,
-                    Quantity = (short)item.Value
+                    Quantity = (short)item.Quantity
 
                 };
-                var buf = App.DB.Stock.FirstOrDefault(x => x.ProductId == item.Key.Id);
-                buf.Quantity -= (short)item.Value;
+                var buf = App.DB.Stock.FirstOrDefault(x => x.ProductId == item.Product.Id);
+                buf.Quantity -= (short)item.Quantity;
                 payment.Sale.Add(sale);
             }
 
@@ -154,6 +163,48 @@ namespace Cashier.Pages
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
+            Refresh();
+        }
+
+        private void BMinus_Click(object sender, RoutedEventArgs e)
+        {
+            var basketBuffer = (sender as Button).DataContext as ProductQuantity;
+            if (basketBuffer == null)
+            {
+                return;
+            }
+            if (basketBuffer.Quantity != 1)
+            {
+                basketBuffer.Quantity -= 1;
+            }
+            LVBasket.ItemsSource = valueProduct.ToList();
+            Refresh();
+        }
+
+        private void BPlus_Click(object sender, RoutedEventArgs e)
+        {
+            var basketBuffer = (sender as Button).DataContext as ProductQuantity;
+            if (basketBuffer == null)
+            {
+                return;
+            }
+            if (App.DB.Stock.FirstOrDefault(x => x.ProductId == basketBuffer.Product.Id)?.Quantity != basketBuffer.Quantity)
+            {
+                basketBuffer.Quantity += 1;
+            }
+            LVBasket.ItemsSource = valueProduct.ToList();
+            Refresh();
+        }
+
+        private void BDel_Click(object sender, RoutedEventArgs e)
+        {
+            var basket = (sender as Button).DataContext as ProductQuantity;
+            if (basket == null)
+            {
+                return;
+            }
+            valueProduct.Remove(basket);
+            LVBasket.ItemsSource = valueProduct.ToList();
             Refresh();
         }
     }

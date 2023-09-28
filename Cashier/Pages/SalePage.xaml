@@ -5,7 +5,6 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Cashier.Pages"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
       Title="SalePage"
       Loaded="Page_Loaded">
 
@@ -123,17 +122,55 @@
                 <ListView x:Name="LVBasket" BorderThickness="0" Height="170" Width="310" d:ItemsSource="{d:SampleData ItemCount=5}">
                     <ListView.ItemTemplate>
                         <DataTemplate>
-                            <Border>
-                                <StackPanel Orientation="Horizontal">
-                                    <TextBlock Text="{Binding Name}"/>
-                                    <TextBlock Margin="20 0 30 0" Text="{Binding Cost, StringFormat=Цена {0}}" />
-                                    <Button Content="Удалить"
-                                            x:Name="BDelItem"
-                                            Click="BDelItem_Click"
-                                            Background="Transparent"
-                                            BorderThickness="0"/>
-                                </StackPanel>
-                            </Border>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition Width="10"/>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition Width="10"/>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition Width="10"/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock/>
+                                <TextBlock Text="{Binding Product.Name}"
+                                           FontSize="20"
+                                           Foreground="Black"
+                                           VerticalAlignment="Center"/>
+                                <TextBlock Text="{Binding Product.Cost}" 
+                                           Grid.Column="2"
+                                           FontSize="20"
+                                           VerticalAlignment="Center"/>
+                                <Border Grid.Column="4"
+                                        BorderThickness="1"
+                                        BorderBrush="Black">
+                                    <StackPanel Orientation="Horizontal">
+                                        <Button x:Name="BPlus" 
+                                                Content="+"
+                                                Click="BPlus_Click"
+                                                Width="20"/>
+                                        <TextBlock Text="{Binding Quantity}"
+                                                   FontSize="20"
+                                                   VerticalAlignment="Center"
+                                                   Margin="5 0"/>
+                                        <Button x:Name="BMinus" 
+                                                Content="-"
+                                                Click="BMinus_Click"
+                                                Width="20"/>
+                                    </StackPanel>
+                                </Border>
+                                <Button x:Name="BDel"
+                                        Content="Удалить"
+                                        Grid.Column="6"
+                                        FontSize="10"
+                                        Click="BDel_Click">
+                                    <Button.Resources>
+                                        <Style TargetType="Border">
+                                            <Setter Property="CornerRadius" Value="5"/>
+                                        </Style>
+                                    </Button.Resources>
+                                </Button>
+                            </Grid>
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>

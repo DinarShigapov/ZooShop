@@ -6,8 +6,100 @@
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="Template.xaml" />
+                
             </ResourceDictionary.MergedDictionaries>
+
+            <Style TargetType="TextBlock">
+                <Setter Property="TextBlock.FontFamily" Value="Fonts/#Jost"/>
+                <Setter Property="FontSize" Value="20"/>
+            </Style>
+
+            <ImageBrush x:Key="close_def"
+                         RenderOptions.BitmapScalingMode="HighQuality"
+                         ImageSource="/Resources/shutdown_def.png"
+                         Stretch="None" />
+
+            <ImageBrush x:Key="close_mo"
+                         RenderOptions.BitmapScalingMode="HighQuality"
+                         ImageSource="/Resources/shutdown_mo.png"
+                         Stretch="None" />
+
+            <Style x:Key="CloseBtnStyle" TargetType="{x:Type Button}">
+                <Setter Property="Height" Value="30" />
+                <Setter Property="Width" Value="30" />
+                <Setter Property="HorizontalAlignment" Value="Right" />
+                <Setter Property="VerticalAlignment" Value="Top" />
+                <Setter Property="Margin" Value="0,20,18,0" />
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="{x:Type Button}">
+                            <Border x:Name="border"
+                                    BorderThickness="0"
+                                    Background="{StaticResource close_def}" />
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsMouseOver"
+                                         Value="True">
+                                    <Setter Property="Background"
+                                            TargetName="border"
+                                            Value="{StaticResource close_mo}" />
+                                </Trigger>
+                                <Trigger Property="IsPressed"
+                                         Value="True">
+                                    <Setter Property="Background"
+                                            TargetName="border"
+                                            Value="{StaticResource close_mo}" />
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
+            <Style TargetType="Button" x:Key="RoundBtnStyle">
+                <Setter Property="Height" Value="35"/>
+                <Setter Property="Width" Value="100"/>
+                <Setter Property="Foreground" Value="White"/>
+                <Setter Property="BorderBrush" Value="Transparent"/>
+                <Setter Property="FontFamily" Value="/Fonts/#Jost"/>
+                <Setter Property="FontSize" Value="20"/>
+                <Style.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="18" />
+                    </Style>
+                </Style.Resources>
+            </Style>
+
+            <ControlTemplate x:Key="Menu_Template"
+                  TargetType="{x:Type MenuItem}">
+
+                <Border x:Name="border"
+                         Background="#FFFFF3E5"
+                         BorderBrush="#FFFFF3E5"
+                         BorderThickness="0"
+                         Height="50"
+                         Width="230">
+
+                    <Grid>
+
+                        <ContentPresenter ContentSource="Header"
+                               TextBlock.Foreground="Black"
+                               TextBlock.FontFamily="Fonts/#Jost"
+                               TextBlock.FontSize="20"
+                               HorizontalAlignment="Left"
+                               RecognizesAccessKey="True"
+                               Margin="30,0,0,0"
+                               VerticalAlignment="Center" />
+                    </Grid>
+                </Border>
+
+
+                <ControlTemplate.Triggers>
+                    <Trigger Property="IsHighlighted" Value="True">
+                        <Setter Property="Background" TargetName="border" Value="#FFEDE2D5" />
+                        <Setter Property="BorderBrush" TargetName="border" Value="#FFEDE2D5" />
+                    </Trigger>
+                </ControlTemplate.Triggers>
+            </ControlTemplate>
         </ResourceDictionary>
     </Application.Resources>
 </Application>
