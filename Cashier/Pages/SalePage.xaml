@@ -33,8 +33,8 @@
 
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="43*"/>
-            <ColumnDefinition Width="37*"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition/>
@@ -50,7 +50,7 @@
                          Width="200"
                          TextChanged="TBSearch_TextChanged"/>
         </StackPanel>
-        <ListView Grid.Row="1" BorderThickness="0 0 2 0" x:Name="LVProduct" d:ItemsSource="{d:SampleData ItemCount=5}">
+        <ListView Grid.Row="1" BorderThickness="0" x:Name="LVProduct" d:ItemsSource="{d:SampleData ItemCount=5}">
             <ListView.ItemsPanel>
                 <ItemsPanelTemplate>
                     <WrapPanel Orientation="Horizontal" HorizontalAlignment="Left" Height="462" Width="396"/>
@@ -112,71 +112,90 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-        <StackPanel Grid.Row="1" Grid.Column="1"
-                    Orientation="Vertical"
-                    HorizontalAlignment="Center" Width="332">
-            <Border Padding="10" CornerRadius="20" BorderThickness="1">
-                <Border.BorderBrush>
-                    <SolidColorBrush Color="Black" Opacity="0.2"/>
-                </Border.BorderBrush>
-                <ListView x:Name="LVBasket" BorderThickness="0" Height="170" Width="310" d:ItemsSource="{d:SampleData ItemCount=5}">
-                    <ListView.ItemTemplate>
-                        <DataTemplate>
-                            <Grid>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition/>
-                                    <ColumnDefinition Width="10"/>
-                                    <ColumnDefinition/>
-                                    <ColumnDefinition Width="10"/>
-                                    <ColumnDefinition/>
-                                    <ColumnDefinition Width="10"/>
-                                    <ColumnDefinition/>
-                                </Grid.ColumnDefinitions>
-                                <TextBlock/>
-                                <TextBlock Text="{Binding Product.Name}"
-                                           FontSize="20"
-                                           Foreground="Black"
-                                           VerticalAlignment="Center"/>
-                                <TextBlock Text="{Binding Product.Cost}" 
-                                           Grid.Column="2"
-                                           FontSize="20"
-                                           VerticalAlignment="Center"/>
-                                <Border Grid.Column="4"
-                                        BorderThickness="1"
-                                        BorderBrush="Black">
-                                    <StackPanel Orientation="Horizontal">
-                                        <Button x:Name="BPlus" 
-                                                Content="+"
-                                                Click="BPlus_Click"
-                                                Width="20"/>
-                                        <TextBlock Text="{Binding Quantity}"
-                                                   FontSize="20"
-                                                   VerticalAlignment="Center"
-                                                   Margin="5 0"/>
-                                        <Button x:Name="BMinus" 
-                                                Content="-"
-                                                Click="BMinus_Click"
-                                                Width="20"/>
-                                    </StackPanel>
-                                </Border>
-                                <Button x:Name="BDel"
-                                        Content="Удалить"
-                                        Grid.Column="6"
-                                        FontSize="10"
-                                        Click="BDel_Click">
-                                    <Button.Resources>
-                                        <Style TargetType="Border">
-                                            <Setter Property="CornerRadius" Value="5"/>
-                                        </Style>
-                                    </Button.Resources>
-                                </Button>
-                            </Grid>
-                        </DataTemplate>
-                    </ListView.ItemTemplate>
-                </ListView>
-            </Border>
+        <Grid Grid.Row="1" 
+              Grid.Column="1"
+              HorizontalAlignment="Center">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="10"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <Grid x:Name="grid">
+                <Border Padding="10"
+                        CornerRadius="20"
+                        BorderThickness="1">
+                    <Border.BorderBrush>
+                        <SolidColorBrush Color="Black" Opacity="0.2"/>
+                    </Border.BorderBrush>
+                    <ListView x:Name="LVBasket" 
+                              BorderThickness="1" 
+                              Height="170"
+                              HorizontalAlignment="Stretch"
+                              d:ItemsSource="{d:SampleData ItemCount=5}">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="10"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="10"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="10"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                    </Grid.ColumnDefinitions>
+                                    <TextBlock/>
+                                    <TextBlock Text="{Binding Product.Name}"
+                                               FontSize="20"
+                                               Foreground="Black"
+                                               VerticalAlignment="Center"/>
+                                    <TextBlock Text="{Binding Product.Cost}" 
+                                               Grid.Column="2"
+                                               FontSize="20"
+                                               VerticalAlignment="Center"/>
+                                    <Border Grid.Column="4"
+                                            BorderThickness="0.5"
+                                            CornerRadius="2"
+                                            BorderBrush="Black">
+                                        <StackPanel Orientation="Horizontal">
+                                            <Button x:Name="BPlus" 
+                                                    Content="+"
+                                                    Background="Transparent"
+                                                    BorderThickness="0"
+                                                    Click="BPlus_Click"
+                                                    Width="20"/>
+                                            <TextBlock Text="{Binding Quantity}"
+                                                       FontSize="20"
+                                                       VerticalAlignment="Center"
+                                                       Margin="5 0"/>
+                                            <Button x:Name="BMinus" 
+                                                    Content="-"
+                                                    Background="Transparent"
+                                                    BorderThickness="0"
+                                                    Click="BMinus_Click"
+                                                    Width="20"/>
+                                        </StackPanel>
+                                    </Border>
+                                    <Button x:Name="BDel"
+                                            Content="Удалить"
+                                            Grid.Column="6"
+                                            Click="BDel_Click">
+                                        <Button.Resources>
+                                            <Style TargetType="Border">
+                                                <Setter Property="CornerRadius" Value="5"/>
+                                            </Style>
+                                        </Button.Resources>
+                                    </Button>
+                                </Grid>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </Border>
+            </Grid>
             <StackPanel HorizontalAlignment="Center"
-                            Margin="0 20">
+                        Margin="0 20"
+                        Grid.Row="2">
                 <TextBlock Text="Карта (если имеется)"/>
                 <TextBox Height="32"
                              x:Name="TBCard"
@@ -192,7 +211,7 @@
                             Click="BSaleProducts_Click"
                             Background="#FFB2DB8A"/>
             </StackPanel>
-        </StackPanel>
+        </Grid>
     </Grid>
 
 </Page>

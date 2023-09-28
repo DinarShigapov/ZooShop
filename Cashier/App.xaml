@@ -71,16 +71,13 @@
 
             <ControlTemplate x:Key="Menu_Template"
                   TargetType="{x:Type MenuItem}">
-
                 <Border x:Name="border"
                          Background="#FFFFF3E5"
                          BorderBrush="#FFFFF3E5"
                          BorderThickness="0"
                          Height="50"
                          Width="230">
-
                     <Grid>
-
                         <ContentPresenter ContentSource="Header"
                                TextBlock.Foreground="Black"
                                TextBlock.FontFamily="Fonts/#Jost"

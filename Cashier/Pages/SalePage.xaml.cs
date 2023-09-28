@@ -67,9 +67,9 @@ namespace Cashier.Pages
         private void RefreshBonus()
         {
             decimal bonus = 0;
-            foreach (var item in products)
+            foreach (var item in valueProduct)
             {
-                bonus += item.Cost / 10;
+                bonus += item.Product.Cost * item.Quantity / 10;
             }
             CountBonus.Text = bonus.ToString();
         }
@@ -179,6 +179,7 @@ namespace Cashier.Pages
             }
             LVBasket.ItemsSource = valueProduct.ToList();
             Refresh();
+            RefreshBonus();
         }
 
         private void BPlus_Click(object sender, RoutedEventArgs e)
@@ -194,6 +195,7 @@ namespace Cashier.Pages
             }
             LVBasket.ItemsSource = valueProduct.ToList();
             Refresh();
+            RefreshBonus();
         }
 
         private void BDel_Click(object sender, RoutedEventArgs e)
@@ -206,6 +208,7 @@ namespace Cashier.Pages
             valueProduct.Remove(basket);
             LVBasket.ItemsSource = valueProduct.ToList();
             Refresh();
+            RefreshBonus();
         }
     }
 }
