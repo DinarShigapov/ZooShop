@@ -23,47 +23,70 @@
         </Grid.RowDefinitions>
 
         <TextBlock FontSize="22" Text="Добавить нового поставщика"/>
-        <StackPanel Grid.Row="1" VerticalAlignment="Center" Orientation="Horizontal" Height="258">
-            <UniformGrid HorizontalAlignment="Left" Width="545">
-                <StackPanel  Margin="0 0 14 0" Orientation="Vertical">
+        <StackPanel Grid.Row="1">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="10"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="10"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition Height="10"/>
+                    <RowDefinition/>
+                    <RowDefinition Height="10"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <StackPanel Orientation="Vertical">
                     <TextBlock Text="Фамилия"/>
                     <TextBox FontSize="15" 
                              BorderThickness="0 0 0 2" 
-                             Text="{Binding LastName}"/>
+                             Text="{Binding LastName}"
+                             Width="150"/>
                 </StackPanel>
-                <StackPanel  Margin="7 0 7 0" Orientation="Vertical">
+                <StackPanel Orientation="Vertical"
+                            Grid.Column="2">
                     <TextBlock Text="Имя"/>
-                    <TextBox FontSize="15" 
+                    <TextBox FontSize="15"
+                             Width="150"
                              BorderThickness="0 0 0 2" 
                              Text="{Binding FirstName}"/>
                 </StackPanel>
-                <StackPanel  Margin="14 0 0 0" Orientation="Vertical">
+                <StackPanel  Grid.Column="4" Orientation="Vertical">
                     <TextBlock Text="Отчество"/>
-                    <TextBox FontSize="15" 
+                    <TextBox FontSize="15"
+                             Width="150"
                              BorderThickness="0 0 0 2" 
                              Text="{Binding Patronymic}"/>
                 </StackPanel>
-                <StackPanel  Margin="0 0 14 0" Orientation="Vertical">
+                <StackPanel  Grid.Row="1" Orientation="Vertical">
                     <TextBlock Text="Телефон"/>
-                    <TextBox FontSize="15" 
+                    <TextBox FontSize="15"
+                             Width="150"
                              BorderThickness="0 0 0 2" 
                              Text="{Binding Phone}"
                              MaxLength="11"
                              PreviewTextInput="Digits_PreviewTextInput"/>
                 </StackPanel>
-                <StackPanel  Margin="7 0 7 0" Orientation="Vertical">
+                <StackPanel  Grid.Row="2"
+                             Orientation="Vertical">
                     <TextBlock Text="Email"/>
                     <TextBox FontSize="15" 
                              BorderThickness="0 0 0 2" 
                              Text="{Binding Email}"/>
                 </StackPanel>
-                <StackPanel  Margin="7 0 7 0" Orientation="Vertical">
+                <StackPanel  Grid.Row="2"
+                             Grid.Column="2"
+                             Orientation="Vertical">
                     <TextBlock Text="Address"/>
-                    <TextBox FontSize="15" 
+                    <TextBox FontSize="15"
+                             Width="150"
                              BorderThickness="0 0 0 2" 
                              Text="{Binding Address}"/>
                 </StackPanel>
-            </UniformGrid>
+            </Grid>
         </StackPanel>
         <StackPanel HorizontalAlignment="Right" Orientation="Horizontal" Grid.Row="2">
             <Button x:Name="BSave"
